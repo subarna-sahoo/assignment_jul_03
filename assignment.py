@@ -1,13 +1,13 @@
 def get_missing_range(lst, lower, upper):
     temp_missing_range_lst = []
     
-    if lst[0]-lower == 2:
+    if lst[0]-lower == 1:
         temp_missing_range_lst.append(str(lower+1))
-    elif lst[0]-lower > 2:
+    elif lst[0]-lower > 1:
         temp_missing_range_lst.append(f"{lower+1}->{lst[0]-1}")
 
     temp_list = lst
-    temp_list.append(upper)
+   
 
     for idx, num in enumerate(temp_list):
         if idx < len(temp_list)-1:
@@ -21,6 +21,13 @@ def get_missing_range(lst, lower, upper):
             else:
                 pass
 
+        
+    if upper - lst[-1] == 1:
+        temp_missing_range_lst.append(str(lst[-1]+1))
+    elif upper - lst[-1] > 1:
+        temp_missing_range_lst.append(f"{lst[-1]+1}->{upper}")
+
+            
     return temp_missing_range_lst
 
 
